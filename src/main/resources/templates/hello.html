@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="a"></div>
+
+
+    <script>
+        var a = document.getElementById("a");
+
+        // try {
+        //     const data =  fetch("http://localhost:8080/sql");
+        //     const processed = (data.items ?? []).map((e) => {
+        //         a.innerHTML = `<p>${e.name}</p>`
+        //         console.log(processed);
+
+        //     });
+        // } catch (e) {
+        //     console.error("Error handling data:", e);
+        // }
+        try {
+            fetch("http://localhost:8080/sql")
+                .then((res) => { res.json() })
+                .then((items) => {
+                    if (Array.isArray(items)) {
+                        items.map((e)=>{
+                             a.innerHTML = `<p>${e.name}</p>`
+                        });
+                    }
+                })
+        }
+        catch (e) {
+            console.error("Error handling data:", e);
+        }
+
+    </script>
+</body>
+
+</html>
