@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: springboot-backend
+    env: docker
+    repo: https://github.com/DINESH06032000/testing-backend
+    branch: main
+    region: oregon
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:mysql://sql12.freesqldatabase.com:3306/sql12788419
+      - key: SPRING_DATASOURCE_USERNAME
+        value: sql12788419
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: CI3n3PpLac
